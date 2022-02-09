@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
         if (isChar1)
         {
             transform.Translate(0f, Input.GetAxis("Vertical") * movementPerSecond * Time.deltaTime, 0f);
+            
         }
         else
         {
@@ -65,7 +66,13 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collison)
     {
-        //Debug.Log("mover collided with " + collison.gameObject.name);
+       
+
+        if(collison.gameObject.name == "Top_Wall" || collison.gameObject.name == "Bottom_Wall")
+        {  
+            // then we know that we have hit the top wall and we have to add forces
+            Debug.Log("Collided");
+        }
     }
 
 }
